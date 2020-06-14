@@ -1,0 +1,2 @@
+cleos -u https://nodes.get-scatter.com:443 get actions gm3denbwguge  1  10
+curl --request POST --url https://nodes.get-scatter.com/v1/history/get_actions -d '{"account_name":"gm3denbwguge","pos":0,"offset":100}'

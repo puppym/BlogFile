@@ -14,11 +14,13 @@
 
 分别对每层高度上的左右节点值求约束。
 
-left_digest $lc * (1-lc) = 0$ 一共digest_size位bit，tree_depth的深度。
+left_digest $lc * (1-lc) = 0$  一共digest_size位bit，tree_depth的深度。
 
 right_digest $lc * (1-lc) = 0$ 一共digest_size位bit，tree_depth的深度。
 
 **一共有 $2*digest\_size*tree\_depth$ 个约束。**
+
+
 
 ## merkle_tree_check_read_gadget
 

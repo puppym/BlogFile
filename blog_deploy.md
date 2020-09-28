@@ -1,7 +1,7 @@
 ### 主要步骤
 
 1. [get start chocolately](https://chocolatey.org/install)
-2. ``choco install hugo-extended -confirm``安装hugo
+2. `choco install hugo-extended -confirm`安装hugo
 3. hugo new post/filedir/filename.md
 4. hugo server -D -w
 5. hugo  生成public 文件夹

@@ -22,6 +22,7 @@ sudo vim /etc/profile
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin
 export GO111MODULE=on
+export GOPATH=/home/czm/gopath
 export GOPROXY=https://goproxy.io
 source /etc/profile
 go env

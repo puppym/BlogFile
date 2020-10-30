@@ -20,7 +20,7 @@
 10. `protocolFeeBips`在`ringsettlementblock`，这个值随着抵押金额的增加费用逐渐降低。`protocolFee  = amountB * protocolFeeBips / 100000`，这个费用是operator给`protocol Account`。fee 和 rebate 在 order 中。`fee = amountB * feeBips / 10000`。`rebate = amount * rebateBips / 10000`。fee是用户支付给operator，rebate是operator支付给(钱包用户)用户的回扣。
 11. bshutdown模式为交易所关门模式，交易所会继续处理用户的OnchainWithdraw，即count不为0，然后withdraws里面的数据是用户提交要处理的出局。Operator也可以自己填充单子，具体的做法是将count置为0，然后自己填充withdraws，operator自己生成证明将用户的token退还给用户。
 12. 当交易所跑路后，用户需要使用`dataavailable`模式获取链上所有的数据，然后通过`dataavailable`的数据证明自己有一些余额，链上合约会返回用户的token，链上的merkleroot和calldata，保证了数据链下数据不被篡改。calldata保证了根据链上数据一步一步算的时候每一步输入的正确性，最后结果会生成一个merkletree。通过验证本地的merkleroot和链上merkleroot是否相同，从而证明本地计算数据的正确性和真实性。
-13. 交易所对于是否开启`onChainDataAvailable`有两种玩法，一种是开启`onChainDataAvailable`，用户可以监管和交易所跑路，用户可以证明自己有这么多钱。一种不开启，虽然吞吐量高，但是用户需要承担交易所跑路并且销毁数据，用户就不能证明自己有那么多钱。
+13. 交易所对于是否开启`onChainDataAvailable`有两种玩法，一种是开启`onChainDataAvailable`，用户可以监管和交易所跑路，用户可以证明自己有这么多钱。一种不开启，虽然吞吐量高，gas的花费少，但是用户需要承担交易所跑路并且销毁数据，用户就不能证明自己有那么多钱。
 14. 对于on-chain的`deposit`和`onchainWithdraw`两个操作计算每个子操作计算publicData的hash的时候是计算`accumulated hash`。
 15. merkletree当中的account下有nonce变量，该变量防止重发off-chain操作，因此每一次off-chain操作都应该使得nonce的值加1。将该nonce包含进用户offchainWithdraw和orderCancellation，operator的RingSettlement的签名中，防止off-chain操作被重放。对于bshutdown的OnchainWithdraw操作，account的nonce值要被回执为0。
 16. 在每条电路运行过程中的hash(publicData)的前23位，就是生成证明中的input的值。这样做是为了固定电路的输入值，当链上使用生成的proof验证时通过该值可以确保电路的输入是链上的输入。

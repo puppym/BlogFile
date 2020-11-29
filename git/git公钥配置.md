@@ -16,6 +16,8 @@
   ssh-add ~/.ssh/id_rsa
   ```
 
+* ssh -T git@github.com   查看是否连接成功
+
 ### 参考文档
 
 [github官方资料](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)

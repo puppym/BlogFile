@@ -1,3 +1,5 @@
+
+
 ## 11.14
 
 * [x] clinkv2证明系统的例子
@@ -45,7 +47,7 @@ geth --datadir data0 --networkid 20088 --ipcdisable --port 30303 --rpcport 30304
 
 ## 11.28
 
-* [ ]  关于ethereum gas的博客
+* [x]  关于ethereum gas的博客
 * [ ] 检查实验
 
 ## 11.29
